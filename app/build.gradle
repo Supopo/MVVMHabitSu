@@ -24,6 +24,7 @@ android {
     }
 }
 
+//v1.0.0
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     //support

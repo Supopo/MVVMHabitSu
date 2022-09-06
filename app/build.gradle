@@ -1,5 +1,11 @@
 apply plugin: 'com.android.application'
 
+
+// 构建时间
+static def generateTime() {
+    return new Date().format("yyyyMMddHHmm")
+}
+
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
@@ -9,6 +15,38 @@ android {
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
     }
+
+    // 自定义打包名称
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "MVVMHabitSu_${buildType.name}_v${versionName}_${generateTime()}.apk"
+            // 什么也不需要可以选择直接 "自定义name.apk"
+            // buildType.name 代表构建类型（release/debug）
+            // versionName 如下图中defaultConfig中的显示
+        }
+    }
+
+    // 创建一个名为keystorePropertiesFile的变量，并将其初始化为rootProject文件夹中的keystore.properties文件。
+    def keystorePropertiesFile = rootProject.file("keystore.properties")
+    // 初始化一个名为keystoreProperties的新Properties（）对象
+    def keystoreProperties = new Properties()
+    // 将keystore.properties文件加载到keystoreProperties对象中
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+    signingConfigs {
+        release {
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+        }
+        debug {
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled true
@@ -29,14 +67,13 @@ dependencies {
     //support
     implementation rootProject.ext.support["design"]
     //下拉刷新,上拉加载
-    implementation 'com.lcodecorex:tkrefreshlayout:1.0.7'
+    implementation rootProject.ext.dependencies["tkrefreshlayout"]
     //底部tabBar
     implementation('me.majiajie:pager-bottom-tab-strip:2.2.5') {
         exclude group: 'com.android.support'
     }
     //MVVMHabit
     implementation project(':mvvmhabit')
-//    implementation rootProject.ext.dependencies.MVVMHabit
     //内存泄漏测试
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
     debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'

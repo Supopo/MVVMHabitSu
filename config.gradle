@@ -59,6 +59,19 @@ ext {
             "lifecycle-compiler"                   : "androidx.lifecycle:lifecycle-compiler:2.0.0",
             //MVVMHabit
             "MVVMHabit"                            : "com.github.goldze:MVVMHabit:4.0.0",
+            //QMUI小功能控件库
+            "qmui"                                 : "com.qmuiteam:qmui:2.0.0-alpha02",
+            "fastjson"                             : "com.alibaba:fastjson:1.2.73",
+            //Banner
+            "banner"                               : "com.github.pinguo-zhouwei:MZBannerView:v2.0.2",
+            //BaseQuickAdapter https://github.com/CymChad/BaseRecyclerViewAdapterHelper/
+            "adapter"                              : "io.github.cymchad:BaseRecyclerViewAdapterHelper:4.0.0-beta02",
+            //jxl解析Excel
+            "jxl"                                  : "net.sourceforge.jexcelapi:jxl:2.6.12",
+            //文件选择
+            "lfilepicker"                          : "com.leon:lfilepickerlibrary:1.8.0",
+            //下拉刷新 上拉加载
+            "tkrefreshlayout"                      : 'com.lcodecorex:tkrefreshlayout:1.0.7',
     ]
 }
 

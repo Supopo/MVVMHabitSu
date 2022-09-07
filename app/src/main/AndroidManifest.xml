@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.goldze.mvvmhabit">
+    package="com.xxx.mvvmhabit">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -12,7 +12,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".app.AppApplication"
+        android:name="com.xxx.mvvmhabit.app.AppApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="${APP_NAME}"
@@ -23,16 +23,16 @@
         tools:replace="android:label">
         <!--        配置渠道信息需要 tools:replace="android:label"-->
 
-        <activity android:name=".ui.login.LoginActivity">
+        <activity android:name="com.xxx.mvvmhabit.ui.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.main.DemoActivity"></activity>
-        <activity android:name=".ui.tab_bar.activity.TabBarActivity"></activity>
-        <activity android:name=".ui.viewpager.activity.ViewPagerActivity"></activity>
+        <activity android:name="com.xxx.mvvmhabit.ui.main.DemoActivity"></activity>
+        <activity android:name="com.xxx.mvvmhabit.ui.tab_bar.activity.TabBarActivity"></activity>
+        <activity android:name="com.xxx.mvvmhabit.ui.viewpager.activity.ViewPagerActivity"></activity>
     </application>
 
 </manifest>

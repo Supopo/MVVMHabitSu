@@ -3,7 +3,7 @@
 
     <data>
 
-        <import type="com.goldze.mvvmhabit.ui.simplenetwork.SimpleNetWorkViewModel" />
+        <import type="com.xxx.mvvmhabit.ui.simplenetwork.SimpleNetWorkViewModel" />
 
         <variable
             name="viewModel"

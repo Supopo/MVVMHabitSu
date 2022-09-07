@@ -161,11 +161,12 @@ CaocConfig.Builder.create()
 
 ##### 2.1.1、关联ViewModel
 在activity_login.xml中关联LoginViewModel。
+
 ```xml
 <layout>
     <data>
         <variable
-            type="com.goldze.mvvmhabit.ui.login.LoginViewModel"
+            type="com.xxx.mvvmhabit.ui.login.LoginViewModel"
             name="viewModel"
         />
     </data>

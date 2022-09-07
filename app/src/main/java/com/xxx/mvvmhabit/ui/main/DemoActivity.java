@@ -5,13 +5,14 @@ import android.app.ProgressDialog;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
+import androidx.lifecycle.Observer;
+
+import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.xxx.mvvmhabit.BR;
 import com.xxx.mvvmhabit.R;
 import com.xxx.mvvmhabit.databinding.ActivityDemoBinding;
-import com.tbruyelle.rxpermissions2.RxPermissions;
 
-import androidx.annotation.Nullable;
-import androidx.lifecycle.Observer;
 import io.reactivex.functions.Consumer;
 import me.goldze.mvvmhabit.base.BaseActivity;
 import me.goldze.mvvmhabit.http.DownLoadManager;
@@ -24,6 +25,7 @@ public class DemoActivity extends BaseActivity<ActivityDemoBinding, DemoViewMode
     public void initParam() {
         super.initParam();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setStatusBar(getResources().getColor(R.color.black));
     }
 
     @Override

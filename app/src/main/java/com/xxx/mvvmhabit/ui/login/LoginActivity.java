@@ -4,14 +4,15 @@ import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 
+import androidx.annotation.Nullable;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+
 import com.xxx.mvvmhabit.BR;
 import com.xxx.mvvmhabit.R;
 import com.xxx.mvvmhabit.app.AppViewModelFactory;
 import com.xxx.mvvmhabit.databinding.ActivityLoginBinding;
 
-import androidx.annotation.Nullable;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 import me.goldze.mvvmhabit.base.BaseActivity;
 
 /**
@@ -27,6 +28,14 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginViewM
     @Override
     public int initVariableId() {
         return BR.viewModel;
+    }
+
+    @Override
+    public void initParam() {
+        super.initParam();
+        setStatusBarTransparent();
+        //设置状态栏文字颜色为黑色
+        setStatusBarTextBlack();
     }
 
     @Override

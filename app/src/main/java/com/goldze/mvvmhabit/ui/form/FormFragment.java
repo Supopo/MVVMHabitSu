@@ -21,7 +21,6 @@ import me.goldze.mvvmhabit.base.BaseFragment;
 import me.goldze.mvvmhabit.utils.MaterialDialogUtils;
 
 /**
- * Created by goldze on 2017/7/17.
  * 表单提交/编辑界面
  */
 

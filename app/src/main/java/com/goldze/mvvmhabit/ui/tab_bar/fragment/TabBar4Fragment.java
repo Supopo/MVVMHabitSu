@@ -10,10 +10,6 @@ import com.goldze.mvvmhabit.R;
 import androidx.annotation.Nullable;
 import me.goldze.mvvmhabit.base.BaseFragment;
 
-/**
- * Created by goldze on 2018/7/18.
- */
-
 public class TabBar4Fragment extends BaseFragment {
     @Override
     public int initContentView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

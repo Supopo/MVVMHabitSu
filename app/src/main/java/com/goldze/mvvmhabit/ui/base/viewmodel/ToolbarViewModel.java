@@ -12,8 +12,6 @@ import me.goldze.mvvmhabit.binding.command.BindingAction;
 import me.goldze.mvvmhabit.binding.command.BindingCommand;
 
 /**
- * Create Author：goldze
- * Create Date：2019/01/03
  * Description： 对应include标题的ToolbarViewModel
  * Toolbar的封装方式有很多种，具体封装需根据项目实际业务和习惯来编写
  * 所有例子仅做参考,业务多种多样,可能我这里写的例子和你的需求不同，理解如何使用才最重要。

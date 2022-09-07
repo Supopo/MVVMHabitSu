@@ -1,8 +1,5 @@
 package com.goldze.mvvmhabit.data.source;
 
-/**
- * Created by goldze on 2019/3/26.
- */
 public interface LocalDataSource {
     /**
      * 保存用户名

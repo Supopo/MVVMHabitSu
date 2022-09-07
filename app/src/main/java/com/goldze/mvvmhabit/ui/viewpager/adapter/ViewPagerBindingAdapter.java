@@ -8,10 +8,6 @@ import com.goldze.mvvmhabit.ui.viewpager.vm.ViewPagerItemViewModel;
 import androidx.databinding.ViewDataBinding;
 import me.tatarka.bindingcollectionadapter2.BindingViewPagerAdapter;
 
-/**
- * Created by goldze on 2018/6/21.
- */
-
 public class ViewPagerBindingAdapter extends BindingViewPagerAdapter<ViewPagerItemViewModel> {
 
     @Override

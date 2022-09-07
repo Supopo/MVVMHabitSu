@@ -13,9 +13,6 @@ import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import me.goldze.mvvmhabit.http.BaseResponse;
 
-/**
- * Created by goldze on 2019/3/26.
- */
 public class HttpDataSourceImpl implements HttpDataSource {
     private DemoApiService apiService;
     private volatile static HttpDataSourceImpl INSTANCE = null;

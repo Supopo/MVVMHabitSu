@@ -24,10 +24,6 @@ import me.goldze.mvvmhabit.utils.RxUtils;
 import me.goldze.mvvmhabit.utils.ToastUtils;
 import me.tatarka.bindingcollectionadapter2.ItemBinding;
 
-/**
- * Created by goldze on 2017/7/17.
- */
-
 public class NetWorkViewModel extends BaseViewModel<DemoRepository> {
     public SingleLiveEvent<NetWorkItemViewModel> deleteItemLiveData = new SingleLiveEvent<>();
     //封装一个界面发生改变的观察者

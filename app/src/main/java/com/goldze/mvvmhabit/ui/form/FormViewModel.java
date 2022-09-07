@@ -21,10 +21,6 @@ import me.goldze.mvvmhabit.binding.viewadapter.spinner.IKeyAndValue;
 import me.goldze.mvvmhabit.bus.event.SingleLiveEvent;
 import me.goldze.mvvmhabit.utils.ToastUtils;
 
-/**
- * Created by goldze on 2017/7/17.
- */
-
 public class FormViewModel extends ToolbarViewModel {
     public FormEntity entity;
 

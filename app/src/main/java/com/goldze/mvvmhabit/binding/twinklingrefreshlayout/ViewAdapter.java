@@ -8,7 +8,6 @@ import me.goldze.mvvmhabit.binding.command.BindingCommand;
 
 
 /**
- * Created by goldze on 2017/6/16.
  * TwinklingRefreshLayout列表刷新的绑定适配器
  */
 public class ViewAdapter {

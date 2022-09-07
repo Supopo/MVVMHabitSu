@@ -7,12 +7,6 @@ import me.goldze.mvvmhabit.binding.command.BindingAction;
 import me.goldze.mvvmhabit.binding.command.BindingCommand;
 import me.goldze.mvvmhabit.utils.ToastUtils;
 
-/**
- * Create Author：goldze
- * Create Date：2019/01/25
- * Description：
- */
-
 public class MultiRecycleHeadViewModel extends MultiItemViewModel {
 
     public MultiRecycleHeadViewModel(@NonNull BaseViewModel viewModel) {

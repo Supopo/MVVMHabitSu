@@ -22,7 +22,6 @@ import me.goldze.mvvmhabit.utils.ToastUtils;
 import me.tatarka.bindingcollectionadapter2.BindingRecyclerViewAdapter;
 
 /**
- * Created by goldze on 2017/7/17.
  * 网络请求列表界面
  */
 

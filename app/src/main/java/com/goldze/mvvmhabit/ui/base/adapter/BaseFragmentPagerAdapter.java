@@ -7,7 +7,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 /**
- * Created by goldze on 2017/7/17.
  * FragmentPager适配器
  */
 

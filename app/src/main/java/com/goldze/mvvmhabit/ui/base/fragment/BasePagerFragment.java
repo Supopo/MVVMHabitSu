@@ -18,7 +18,6 @@ import me.goldze.mvvmhabit.base.BaseFragment;
 import me.goldze.mvvmhabit.base.BaseViewModel;
 
 /**
- * Created by goldze on 2017/7/17.
  * 抽取的二级BasePagerFragment
  */
 

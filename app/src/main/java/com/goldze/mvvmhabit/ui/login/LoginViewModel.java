@@ -20,10 +20,6 @@ import me.goldze.mvvmhabit.bus.event.SingleLiveEvent;
 import me.goldze.mvvmhabit.utils.RxUtils;
 import me.goldze.mvvmhabit.utils.ToastUtils;
 
-/**
- * Created by goldze on 2017/7/17.
- */
-
 public class LoginViewModel extends BaseViewModel<DemoRepository> {
     //用户名的绑定
     public ObservableField<String> userName = new ObservableField<>("");

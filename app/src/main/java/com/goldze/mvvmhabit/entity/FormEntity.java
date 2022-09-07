@@ -5,10 +5,6 @@ import android.os.Parcelable;
 
 import androidx.databinding.BaseObservable;
 
-/**
- * Created by goldze on 2017/7/17.
- */
-
 public class FormEntity extends BaseObservable implements Parcelable {
     private String id;
     private String name;

@@ -13,12 +13,6 @@ import me.goldze.mvvmhabit.base.MultiItemViewModel;
 import me.tatarka.bindingcollectionadapter2.ItemBinding;
 import me.tatarka.bindingcollectionadapter2.OnItemBind;
 
-/**
- * Create Author：goldze
- * Create Date：2019/01/25
- * Description：
- */
-
 public class MultiRecycleViewModel extends BaseViewModel {
     private static final String MultiRecycleType_Head = "head";
     private static final String MultiRecycleType_Left = "left";

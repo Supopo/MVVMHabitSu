@@ -12,7 +12,6 @@ import com.goldze.mvvmhabit.entity.DemoEntity;
 import me.goldze.mvvmhabit.base.BaseFragment;
 
 /**
- * Created by goldze on 2017/7/17.
  * 详情界面
  */
 

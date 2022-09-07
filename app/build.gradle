@@ -20,7 +20,7 @@ android {
         //方法超过65K，需要支持多个库
         multiDexEnabled true
         //配置APP变量
-        buildConfigField("boolean", "isOpen", "false")
+        buildConfigField("boolean", "IS_OPEN", "false")
     }
     //设置JDK版本
     compileOptions {
@@ -76,11 +76,15 @@ android {
     productFlavors {
         pro {
             applicationId "com.xxx.pro"
+            buildConfigField("boolean", "IS_PRO", "true")
+
             manifestPlaceholders = [
                     APP_NAME: "@string/app_name"]
         }
         dev {
             applicationId "com.xxx.dev"
+            buildConfigField("boolean", "IS_DEV", "true")
+
             manifestPlaceholders = [
                     APP_NAME: "@string/app_name_dev"]
         }

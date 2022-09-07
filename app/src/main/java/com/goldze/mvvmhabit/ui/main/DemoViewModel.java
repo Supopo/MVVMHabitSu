@@ -7,11 +7,13 @@ import com.goldze.mvvmhabit.entity.FormEntity;
 import com.goldze.mvvmhabit.ui.form.FormFragment;
 import com.goldze.mvvmhabit.ui.network.NetWorkFragment;
 import com.goldze.mvvmhabit.ui.rv_multi.MultiRecycleViewFragment;
+import com.goldze.mvvmhabit.ui.simplenetwork.SimpleNetWorkFragment;
 import com.goldze.mvvmhabit.ui.tab_bar.activity.TabBarActivity;
 import com.goldze.mvvmhabit.ui.viewpager.activity.ViewPagerActivity;
 import com.goldze.mvvmhabit.ui.vp_frg.ViewPagerGroupFragment;
 
 import androidx.annotation.NonNull;
+
 import me.goldze.mvvmhabit.base.BaseViewModel;
 import me.goldze.mvvmhabit.binding.command.BindingAction;
 import me.goldze.mvvmhabit.binding.command.BindingCommand;
@@ -26,6 +28,14 @@ public class DemoViewModel extends BaseViewModel {
     public DemoViewModel(@NonNull Application application) {
         super(application);
     }
+
+    //简单的网络访问点击事件
+    public BindingCommand simpleNetWorkClick = new BindingCommand(new BindingAction() {
+        @Override
+        public void call() {
+            startContainerActivity(SimpleNetWorkFragment.class.getCanonicalName());
+        }
+    });
 
     //网络访问点击事件
     public BindingCommand netWorkClick = new BindingCommand(new BindingAction() {

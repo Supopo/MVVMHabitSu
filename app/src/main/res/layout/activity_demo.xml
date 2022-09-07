@@ -20,6 +20,12 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="简单的网络访问"
+            binding:onClickCommand="@{viewModel.simpleNetWorkClick}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="网络访问"
             binding:onClickCommand="@{viewModel.netWorkClick}" />
 
@@ -76,5 +82,6 @@
             android:layout_height="wrap_content"
             android:text="文件下载"
             binding:onClickCommand="@{viewModel.fileDownLoadClick}" />
+
     </LinearLayout>
 </layout>

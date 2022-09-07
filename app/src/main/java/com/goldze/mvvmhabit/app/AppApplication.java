@@ -1,9 +1,11 @@
 package com.goldze.mvvmhabit.app;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+
 import com.goldze.mvvmhabit.BuildConfig;
 import com.goldze.mvvmhabit.R;
 import com.goldze.mvvmhabit.ui.login.LoginActivity;
-import com.squareup.leakcanary.LeakCanary;
 
 import me.goldze.mvvmhabit.base.BaseApplication;
 import me.goldze.mvvmhabit.crash.CaocConfig;
@@ -14,6 +16,12 @@ import me.goldze.mvvmhabit.utils.KLog;
  */
 
 public class AppApplication extends BaseApplication {
+    @SuppressLint("StaticFieldLeak")
+    public static Context mContext;
+    public static Context getContext() {
+        return mContext;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -21,10 +29,6 @@ public class AppApplication extends BaseApplication {
         KLog.init(BuildConfig.DEBUG);
         //初始化全局异常崩溃
         initCrash();
-        //内存泄漏检测
-        if (!LeakCanary.isInAnalyzerProcess(this)) {
-            LeakCanary.install(this);
-        }
     }
 
     private void initCrash() {

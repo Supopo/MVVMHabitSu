@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">MVVMHabit-sample</string>
+    <string name="app_name">发布版本</string>
+    <string name="app_name_dev">开发版本</string>
 </resources>

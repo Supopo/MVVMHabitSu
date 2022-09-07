@@ -1,10 +1,11 @@
 apply plugin: 'com.android.application'
 
-
-// 构建时间
+//构建时间
 static def generateTime() {
     return new Date().format("yyyyMMddHHmm")
 }
+
+def appName = 'MVVMHabitSu'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -14,23 +15,33 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
+        //如果配置了多渠道，版本名后面添加一句话，意思就是flavor dimension 它的维度就是该版本号，这样维度就是都是统一的了
+        flavorDimensions "versionCode"
+        //方法超过65K，需要支持多个库
+        multiDexEnabled true
+        //配置APP变量
+        buildConfigField("boolean", "isOpen", "false")
+    }
+    //设置JDK版本
+    compileOptions {
+        sourceCompatibility = rootProject.ext.android.sourceCompatibility
+        targetCompatibility = rootProject.ext.android.targetCompatibility
     }
 
-    // 自定义打包名称
+    //自定义打包名称
     android.applicationVariants.all { variant ->
         variant.outputs.all {
-            outputFileName = "MVVMHabitSu_${buildType.name}_v${versionName}_${generateTime()}.apk"
-            // 什么也不需要可以选择直接 "自定义name.apk"
-            // buildType.name 代表构建类型（release/debug）
-            // versionName 如下图中defaultConfig中的显示
+            outputFileName = "${appName}_${buildType.name}_v${versionName}_${generateTime()}.apk"
+            //什么也不需要可以选择直接 "自定义name.apk"
+            //buildType.name 代表构建类型（release/debug）
         }
     }
 
-    // 创建一个名为keystorePropertiesFile的变量，并将其初始化为rootProject文件夹中的keystore.properties文件。
+    //创建一个名为keystorePropertiesFile的变量，并将其初始化为rootProject文件夹中的keystore.properties文件。
     def keystorePropertiesFile = rootProject.file("keystore.properties")
-    // 初始化一个名为keystoreProperties的新Properties（）对象
+    //初始化一个名为keystoreProperties的新Properties（）对象
     def keystoreProperties = new Properties()
-    // 将keystore.properties文件加载到keystoreProperties对象中
+    //将keystore.properties文件加载到keystoreProperties对象中
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
     signingConfigs {
         release {
@@ -60,6 +71,20 @@ android {
     dataBinding {
         enabled true
     }
+
+    //渠道管理
+    productFlavors {
+        pro {
+            applicationId "com.xxx.pro"
+            manifestPlaceholders = [
+                    APP_NAME: "@string/app_name"]
+        }
+        dev {
+            applicationId "com.xxx.dev"
+            manifestPlaceholders = [
+                    APP_NAME: "@string/app_name_dev"]
+        }
+    }
 }
 
 dependencies {
@@ -72,9 +97,10 @@ dependencies {
     implementation('me.majiajie:pager-bottom-tab-strip:2.2.5') {
         exclude group: 'com.android.support'
     }
-    //MVVMHabit
+    // MVVMHabit
     implementation project(':mvvmhabit')
-    //内存泄漏测试
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
-    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.3'
+    //内存泄漏测试 https://square.github.io/leakcanary/getting_started/
+    //中文讲解 https://zhuanlan.zhihu.com/p/360944586
+    //debugImplementation because LeakCanary should only run in debug builds.
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
 }

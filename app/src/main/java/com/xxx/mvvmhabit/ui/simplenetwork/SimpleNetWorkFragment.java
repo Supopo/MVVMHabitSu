@@ -7,14 +7,17 @@ import android.view.ViewGroup;
 
 import com.xxx.mvvmhabit.BR;
 import com.xxx.mvvmhabit.R;
-import com.xxx.mvvmhabit.databinding.FragmentNetworkBinding;
+import com.xxx.mvvmhabit.databinding.FragmentSimpleNetworkBinding;
+import com.xxx.mvvmhabit.ui.network.detail.DetailFragment;
 
 import me.goldze.mvvmhabit.base.BaseFragment;
 
 /**
  * 简单的网络请求
  */
-public class SimpleNetWorkFragment extends BaseFragment<FragmentNetworkBinding, SimpleNetWorkViewModel> {
+public class SimpleNetWorkFragment extends BaseFragment<FragmentSimpleNetworkBinding, SimpleNetWorkViewModel> {
+
+    private SimpleAdapter mAdapter;
 
     @Override
     public void initParam() {
@@ -35,8 +38,20 @@ public class SimpleNetWorkFragment extends BaseFragment<FragmentNetworkBinding, 
     @Override
     public void initData() {
         super.initData();
+        mAdapter = new SimpleAdapter();
+        binding.rvContent.setAdapter(mAdapter);
+
         showDialog("请求中...");
         viewModel.demoGet();
+
+        mAdapter.setOnItemClickListener((adapter, view, position) -> {
+            //跳转到详情界面,传入条目的实体对象
+            Bundle mBundle = new Bundle();
+            mBundle.putParcelable("entity", adapter.getItems().get(position));
+            viewModel.startContainerActivity(DetailFragment.class.getCanonicalName(), mBundle);
+            return null;
+        });
+
     }
 
     @Override
@@ -50,7 +65,7 @@ public class SimpleNetWorkFragment extends BaseFragment<FragmentNetworkBinding, 
 
         viewModel.dataResult.observe(this, demoEntity -> {
             if (demoEntity != null && !demoEntity.getItems().isEmpty()) {
-                viewModel.initListData(demoEntity);
+                mAdapter.submitList(demoEntity.getItems());
             }
         });
     }

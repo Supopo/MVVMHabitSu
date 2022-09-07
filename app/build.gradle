@@ -95,13 +95,16 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     //support
     implementation rootProject.ext.support["design"]
+
     //下拉刷新,上拉加载
     implementation rootProject.ext.dependencies["tkrefreshlayout"]
     //底部tabBar
     implementation('me.majiajie:pager-bottom-tab-strip:2.2.5') {
         exclude group: 'com.android.support'
     }
-    // MVVMHabit
+    implementation rootProject.ext.dependencies["base-quick-adapter"]
+
+    //MVVMHabit
     implementation project(':mvvmhabit')
     //内存泄漏测试 https://square.github.io/leakcanary/getting_started/
     //中文讲解 https://zhuanlan.zhihu.com/p/360944586

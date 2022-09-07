@@ -23,7 +23,9 @@
         tools:replace="android:label">
         <!--        配置渠道信息需要 tools:replace="android:label"-->
 
-        <activity android:name="com.xxx.mvvmhabit.ui.login.LoginActivity">
+        <activity
+            android:name="com.xxx.mvvmhabit.ui.login.LoginActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

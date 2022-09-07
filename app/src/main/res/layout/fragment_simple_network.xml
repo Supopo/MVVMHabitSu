@@ -28,10 +28,9 @@
             binding:tr_wave_height="80dp">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_content"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                binding:itemBinding="@{viewModel.itemBinding}"
-                binding:items="@{viewModel.observableList}"
                 binding:layoutManager="@{LayoutManagers.linear()}"
                 binding:lineManager="@{LineManagers.horizontal()}" />
 

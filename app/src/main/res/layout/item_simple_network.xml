@@ -3,11 +3,11 @@
 
     <data>
 
-        <import type="com.xxx.mvvmhabit.ui.simplenetwork.SimpleNetWorkItemViewModel" />
+        <import type="com.xxx.mvvmhabit.entity.DemoEntity.ItemsEntity" />
 
         <variable
             name="viewModel"
-            type="com.xxx.mvvmhabit.ui.simplenetwork.SimpleNetWorkItemViewModel" />
+            type="ItemsEntity" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -17,21 +17,18 @@
         android:background="?android:selectableItemBackground"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="10dp"
-        binding:onClickCommand="@{viewModel.itemClick}"
-        binding:onLongClickCommand="@{viewModel.itemLongClick}">
+        android:padding="10dp">
 
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@{viewModel.drawableImg}"
-            binding:url="@{viewModel.entity.img}" />
+            binding:url="@{viewModel.img}" />
 
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
-            android:text="@{viewModel.entity.id == -1 ? viewModel.getPosition() + viewModel.entity.name : viewModel.entity.name}" />
+            android:text="@{viewModel.id == -1 ? viewModel.id + viewModel.name : viewModel.name}" />
     </LinearLayout>
 </layout>

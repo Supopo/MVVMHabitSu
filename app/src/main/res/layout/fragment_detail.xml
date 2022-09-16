@@ -3,13 +3,13 @@
 
     <data>
 
-        <import type="com.xxx.mvvmhabit.ui.network.detail.DetailViewModel" />
+        <import type="com.xxx.mvvm.ui.network.detail.DetailViewModel" />
 
         <variable
                 name="viewModel"
-                type="com.xxx.mvvmhabit.ui.network.detail.DetailViewModel"
+                type="com.xxx.mvvm.ui.network.detail.DetailViewModel"
                 />
-        <import type="com.xxx.mvvmhabit.R" />
+        <import type="com.xxx.mvvm.R" />
     </data>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

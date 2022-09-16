@@ -3,7 +3,7 @@
 
     <data>
 
-        <import type="com.xxx.mvvmhabit.ui.viewpager.vm.ViewPagerItemViewModel" />
+        <import type="com.xxx.mvvm.ui.viewpager.vm.ViewPagerItemViewModel" />
 
         <variable
             name="viewModel"

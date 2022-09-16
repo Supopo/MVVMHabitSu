@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.xxx.mvvmhabit.ui.login.LoginViewModel" />
+            type="com.xxx.mvvm.ui.login.LoginViewModel" />
     </data>
 
     <RelativeLayout

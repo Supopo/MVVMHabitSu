@@ -3,9 +3,9 @@
 
     <data>
 
-        <import type="com.xxx.mvvmhabit.ui.viewpager.vm.ViewPagerViewModel" />
+        <import type="com.xxx.mvvm.ui.viewpager.vm.ViewPagerViewModel" />
 
-        <import type="com.xxx.mvvmhabit.ui.viewpager.adapter.ViewPagerBindingAdapter" />
+        <import type="com.xxx.mvvm.ui.viewpager.adapter.ViewPagerBindingAdapter" />
 
         <variable
             name="viewModel"

@@ -3,7 +3,7 @@
 
     <data>
 
-        <import type="com.xxx.mvvmhabit.ui.main.DemoViewModel" />
+        <import type="com.xxx.mvvm.ui.main.DemoViewModel" />
 
         <variable
             name="viewModel"

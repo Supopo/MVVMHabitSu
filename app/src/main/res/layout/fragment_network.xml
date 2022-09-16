@@ -3,7 +3,7 @@
 
     <data>
 
-        <import type="com.xxx.mvvmhabit.ui.network.NetWorkViewModel" />
+        <import type="com.xxx.mvvm.ui.network.NetWorkViewModel" />
 
         <variable
             name="viewModel"

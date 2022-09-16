@@ -166,7 +166,7 @@ CaocConfig.Builder.create()
 <layout>
     <data>
         <variable
-            type="com.xxx.mvvmhabit.ui.login.LoginViewModel"
+            type="com.xxx.mvvm.ui.login.LoginViewModel"
             name="viewModel"
         />
     </data>

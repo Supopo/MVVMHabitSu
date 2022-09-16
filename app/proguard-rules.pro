@@ -26,7 +26,7 @@
 
 #------------------------------------------主项目混淆规则----------------------------------------------
 #实体类不参与混淆
--keep class com.xxx.mvvmhabit.entity.** { *; }
+-keep class com.xxx.mvvm.entity.** { *; }
 
 #tkrefreshlayout
 -keep class com.lcodecore.tkrefreshlayout.** { *; }

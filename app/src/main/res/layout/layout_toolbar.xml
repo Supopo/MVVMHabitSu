@@ -6,7 +6,7 @@
 
         <variable
             name="toolbarViewModel"
-            type="com.xxx.mvvmhabit.ui.base.viewmodel.ToolbarViewModel" />
+            type="com.xxx.mvvm.ui.base.viewmodel.ToolbarViewModel" />
     </data>
 
     <androidx.appcompat.widget.Toolbar

@@ -3,7 +3,7 @@
 
     <data>
 
-        <import type="com.xxx.mvvmhabit.entity.DemoEntity.ItemsEntity" />
+        <import type="com.xxx.mvvm.entity.DemoEntity.ItemsEntity" />
 
         <variable
             name="viewModel"

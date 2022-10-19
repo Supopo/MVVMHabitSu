@@ -95,7 +95,6 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     //support
     implementation rootProject.ext.support["design"]
-
     //下拉刷新,上拉加载
     implementation rootProject.ext.dependencies["tkrefreshlayout"]
     //底部tabBar

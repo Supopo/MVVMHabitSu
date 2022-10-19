@@ -47,9 +47,8 @@ public class SimpleNetWorkFragment extends BaseFragment<FragmentSimpleNetworkBin
         mAdapter.setOnItemClickListener((adapter, view, position) -> {
             //跳转到详情界面,传入条目的实体对象
             Bundle mBundle = new Bundle();
-            mBundle.putParcelable("entity", adapter.getItems().get(position));
+            mBundle.putParcelable("entity", mAdapter.getData().get(position));
             viewModel.startContainerActivity(DetailFragment.class.getCanonicalName(), mBundle);
-            return null;
         });
 
     }
@@ -65,7 +64,7 @@ public class SimpleNetWorkFragment extends BaseFragment<FragmentSimpleNetworkBin
 
         viewModel.dataResult.observe(this, demoEntity -> {
             if (demoEntity != null && !demoEntity.getItems().isEmpty()) {
-                mAdapter.submitList(demoEntity.getItems());
+                mAdapter.setNewInstance(demoEntity.getItems());
             }
         });
     }

@@ -4,6 +4,8 @@ import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
@@ -12,6 +14,7 @@ import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.xxx.mvvm.BR;
 import com.xxx.mvvm.R;
 import com.xxx.mvvm.databinding.ActivityDemoBinding;
+import com.xxx.mvvm.ui.widget.BaseDialog;
 
 import io.reactivex.functions.Consumer;
 import me.goldze.mvvmhabit.base.BaseActivity;
@@ -21,6 +24,9 @@ import me.goldze.mvvmhabit.utils.ToastUtils;
 import okhttp3.ResponseBody;
 
 public class DemoActivity extends BaseActivity<ActivityDemoBinding, DemoViewModel> {
+
+    private BaseDialog baseDialog;
+
     @Override
     public void initParam() {
         super.initParam();
@@ -54,6 +60,33 @@ public class DemoActivity extends BaseActivity<ActivityDemoBinding, DemoViewMode
                 downFile(url);
             }
         });
+        //BottomDialog请求
+        viewModel.showBottomDialog.observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(@Nullable Boolean aBoolean) {
+                showBottomDialog();
+            }
+        });
+    }
+
+    private void showBottomDialog() {
+        if (baseDialog == null) {
+            baseDialog = new BaseDialog(DemoActivity.this, R.layout.dialog_bottom, new int[]{R.id.tv_cancel, R.id.tv_save}, Gravity.BOTTOM);
+            baseDialog.setOnBottomItemClickListener(new BaseDialog.OnBottomItemClickListener() {
+                @Override
+                public void onBottomItemClick(BaseDialog dialog, View view) {
+                    int id = view.getId();
+                    if (id == R.id.tv_cancel) {
+                        ToastUtils.showShort("取消");
+                        dialog.dismiss();
+                    } else if (id == R.id.tv_save) {
+                        ToastUtils.showShort("保存");
+                        dialog.dismiss();
+                    }
+                }
+            });
+        }
+        baseDialog.show();
     }
 
     /**

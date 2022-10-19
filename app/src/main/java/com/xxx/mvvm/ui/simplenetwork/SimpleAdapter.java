@@ -1,45 +1,27 @@
 package com.xxx.mvvm.ui.simplenetwork;
 
-import android.content.Context;
-import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.viewholder.DataBindingHolder;
+import com.chad.library.adapter.base.module.LoadMoreModule;
+import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.xxx.mvvm.R;
 import com.xxx.mvvm.databinding.ItemSimpleNetworkBinding;
 import com.xxx.mvvm.entity.DemoEntity;
 
-import java.util.List;
+public class SimpleAdapter extends BaseQuickAdapter<DemoEntity.ItemsEntity, BaseViewHolder> implements LoadMoreModule {
 
-public class SimpleAdapter extends BaseQuickAdapter<DemoEntity.ItemsEntity, DataBindingHolder<ItemSimpleNetworkBinding>> {
+
+    public SimpleAdapter() {
+        super(R.layout.item_simple_network);
+    }
 
     @Override
-    protected void onBindViewHolder(@NonNull DataBindingHolder<ItemSimpleNetworkBinding> holder, int i, @Nullable DemoEntity.ItemsEntity item) {
-        if (item == null)
-            return;
-
+    protected void convert(@NonNull BaseViewHolder helper, DemoEntity.ItemsEntity itemsEntity) {
         // 获取 Binding
-        ItemSimpleNetworkBinding binding = holder.getBinding();
-        binding.setViewModel(item);
+        ItemSimpleNetworkBinding binding = DataBindingUtil.bind(helper.itemView);
+        binding.setViewModel(itemsEntity);
         binding.executePendingBindings();
-    }
-
-    //局部刷新
-    @Override
-    protected void onBindViewHolder(@NonNull DataBindingHolder<ItemSimpleNetworkBinding> holder, int position, @Nullable DemoEntity.ItemsEntity item, @NonNull List<?> payloads) {
-        super.onBindViewHolder(holder, position, item, payloads);
-        //判单payloads
-        if (!payloads.isEmpty()) {
-            String tag = (String) payloads.get(0);
-        }
-    }
-
-    @NonNull
-    @Override
-    protected DataBindingHolder<ItemSimpleNetworkBinding> onCreateViewHolder(@NonNull Context context, @NonNull ViewGroup viewGroup, int i) {
-        return new DataBindingHolder<>(R.layout.item_simple_network, viewGroup);
     }
 }

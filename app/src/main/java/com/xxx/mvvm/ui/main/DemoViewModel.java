@@ -22,6 +22,7 @@ import me.goldze.mvvmhabit.bus.event.SingleLiveEvent;
 public class DemoViewModel extends BaseViewModel {
     //使用Observable
     public SingleLiveEvent<Boolean> requestCameraPermissions = new SingleLiveEvent<>();
+    public SingleLiveEvent<Boolean> showBottomDialog = new SingleLiveEvent<>();
     //使用LiveData
     public SingleLiveEvent<String> loadUrlEvent = new SingleLiveEvent<>();
 
@@ -117,6 +118,13 @@ public class DemoViewModel extends BaseViewModel {
         @Override
         public void call() {
             loadUrlEvent.setValue("http://gdown.baidu.com/data/wisegame/dc8a46540c7960a2/baidushoujizhushou_16798087.apk");
+        }
+    });
+    //底部弹窗
+    public BindingCommand bottomDialogClick = new BindingCommand(new BindingAction() {
+        @Override
+        public void call() {
+            showBottomDialog.call();
         }
     });
 }

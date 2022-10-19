@@ -19,7 +19,7 @@ public class SimpleAdapter extends BaseQuickAdapter<DemoEntity.ItemsEntity, Base
 
     @Override
     protected void convert(@NonNull BaseViewHolder helper, DemoEntity.ItemsEntity itemsEntity) {
-        // 获取 Binding
+        // 获取 Binding  爆红是因为kt里面有，java找不到
         ItemSimpleNetworkBinding binding = DataBindingUtil.bind(helper.itemView);
         binding.setViewModel(itemsEntity);
         binding.executePendingBindings();

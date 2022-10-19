@@ -15,6 +15,7 @@ ext {
     versions = [
             "support-version"     : "1.0.0",
             "appcompat-version"   : "1.0.0",
+            "recyclerview-version"   : "1.2.1",
             "core-version"        : "1.8.0",
             "junit-version"       : "4.12",
     ]
@@ -23,7 +24,7 @@ ext {
             'support-v4'              : "androidx.legacy:legacy-support-v4:${versions["support-version"]}",
             'appcompat-v7'            : "androidx.appcompat:appcompat:${versions["appcompat-version"]}",
             'core-ktx'                : "androidx.core:core-ktx:${versions["core-version"]}",
-            'recyclerview-v7'         : "androidx.recyclerview:recyclerview:${versions["support-version"]}",
+            'recyclerview-v7'         : "androidx.recyclerview:recyclerview:${versions["recyclerview-version"]}",
             'support-v13'             : "androidx.legacy:legacy-support-v13:${versions["support-version"]}",
             'support-fragment'        : "androidx.fragment:fragment:${versions["support-version"]}",
             'design'                  : "com.google.android.material:material:${versions["support-version"]}",

@@ -12,6 +12,7 @@ import com.trello.rxlifecycle2.components.support.RxFragment;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Map;
+import java.util.Objects;
 
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
@@ -23,6 +24,7 @@ import androidx.lifecycle.ViewModelProviders;
 import me.goldze.mvvmhabit.base.BaseViewModel.ParameterField;
 import me.goldze.mvvmhabit.bus.Messenger;
 import me.goldze.mvvmhabit.utils.MaterialDialogUtils;
+import me.goldze.mvvmhabit.widget.LoadingDialog;
 
 /**
  * Created by goldze on 2017/6/15.
@@ -31,7 +33,8 @@ public abstract class BaseFragment<V extends ViewDataBinding, VM extends BaseVie
     protected V binding;
     protected VM viewModel;
     private int viewModelId;
-    private MaterialDialog dialog;
+    private MaterialDialog hProgressDialog;//横向进度条Dialog
+    private LoadingDialog loadingDialog;//转圈加载Dialog
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -158,19 +161,29 @@ public abstract class BaseFragment<V extends ViewDataBinding, VM extends BaseVie
         });
     }
 
-    public void showDialog(String title) {
-        if (dialog != null) {
-            dialog = dialog.getBuilder().title(title).build();
-            dialog.show();
+    public void showHProgressDialog(String title) {
+        if (hProgressDialog != null) {
+            hProgressDialog = hProgressDialog.getBuilder().title(title).build();
+            hProgressDialog.show();
         } else {
             MaterialDialog.Builder builder = MaterialDialogUtils.showIndeterminateProgressDialog(getActivity(), title, true);
-            dialog = builder.show();
+            hProgressDialog = builder.show();
         }
     }
 
+    public void showDialog(String title) {
+        if (loadingDialog == null) {
+            loadingDialog = new LoadingDialog(Objects.requireNonNull(getActivity()), title);
+        }
+        loadingDialog.show();
+    }
+
     public void dismissDialog() {
-        if (dialog != null && dialog.isShowing()) {
-            dialog.dismiss();
+        if (loadingDialog != null && loadingDialog.isShowing()) {
+            loadingDialog.dismiss();
+        }
+        if (hProgressDialog != null && hProgressDialog.isShowing()) {
+            hProgressDialog.dismiss();
         }
     }
 

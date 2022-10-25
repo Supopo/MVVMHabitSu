@@ -30,6 +30,7 @@ import java.util.Map;
 import me.goldze.mvvmhabit.base.BaseViewModel.ParameterField;
 import me.goldze.mvvmhabit.bus.Messenger;
 import me.goldze.mvvmhabit.utils.MaterialDialogUtils;
+import me.goldze.mvvmhabit.widget.LoadingDialog;
 
 
 /**
@@ -41,7 +42,8 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
     protected V binding;
     protected VM viewModel;
     private int viewModelId;
-    private MaterialDialog dialog;
+    private MaterialDialog hProgressDialog;//横向进度条Dialog
+    private LoadingDialog loadingDialog;//转圈加载Dialog
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -163,19 +165,29 @@ public abstract class BaseActivity<V extends ViewDataBinding, VM extends BaseVie
         });
     }
 
-    public void showDialog(String title) {
-        if (dialog != null) {
-            dialog = dialog.getBuilder().title(title).build();
-            dialog.show();
+    public void showHProgressDialog(String title) {
+        if (hProgressDialog != null) {
+            hProgressDialog = hProgressDialog.getBuilder().title(title).build();
+            hProgressDialog.show();
         } else {
             MaterialDialog.Builder builder = MaterialDialogUtils.showIndeterminateProgressDialog(this, title, true);
-            dialog = builder.show();
+            hProgressDialog = builder.show();
         }
     }
 
+    public void showDialog(String title) {
+        if (loadingDialog == null) {
+            loadingDialog = new LoadingDialog(this, title);
+        }
+        loadingDialog.show();
+    }
+
     public void dismissDialog() {
-        if (dialog != null && dialog.isShowing()) {
-            dialog.dismiss();
+        if (loadingDialog != null && loadingDialog.isShowing()) {
+            loadingDialog.dismiss();
+        }
+        if (hProgressDialog != null && hProgressDialog.isShowing()) {
+            hProgressDialog.dismiss();
         }
     }
 
